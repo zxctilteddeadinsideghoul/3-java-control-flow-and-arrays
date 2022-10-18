@@ -4,13 +4,83 @@ variables:
 stages:
   - test
 
-Verify:
+.verify: &verify
   stage: test
   image: $GRADLE_BUILD_IMAGE
   interruptible: true
   variables:
     GIT_STRATEGY: clone
   script:
-    - gradle clean check
+    - gradle $TASK:clean $TASK:check
   only:
     - merge_requests
+  artifacts:
+    when: on_failure
+    reports:
+      junit: $TASK/build/test-results/test/**/TEST-*.xml
+
+Задача 1:
+  <<: *verify
+  variables:
+    TASK: task01
+
+Задача 2:
+  <<: *verify
+  variables:
+    TASK: task02
+
+Задача 3:
+  <<: *verify
+  variables:
+    TASK: task03
+
+Задача 4:
+  <<: *verify
+  variables:
+    TASK: task04
+
+Задача 5:
+  <<: *verify
+  variables:
+    TASK: task05
+
+Задача 6:
+  <<: *verify
+  variables:
+    TASK: task06
+
+Задача 7:
+  <<: *verify
+  variables:
+    TASK: task07
+
+Задача 8:
+  <<: *verify
+  variables:
+    TASK: task08
+
+Задача 9:
+  <<: *verify
+  variables:
+    TASK: task09
+
+Задача 10:
+  <<: *verify
+  variables:
+    TASK: task10
+
+Задача 11:
+  <<: *verify
+  variables:
+    TASK: task11
+
+Задача 12:
+  <<: *verify
+  variables:
+    TASK: task12
+
+Задача 13:
+  <<: *verify
+  variables:
+    TASK: task13
+
