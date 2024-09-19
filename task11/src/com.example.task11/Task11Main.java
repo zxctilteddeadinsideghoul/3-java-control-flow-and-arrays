@@ -1,5 +1,7 @@
 package com.example.task11;
 
+import java.util.Arrays;
+
 public class Task11Main {
     public static void main(String[] args) {
         //здесь вы можете вручную протестировать ваше решение, вызывая реализуемый метод и смотря результат
@@ -12,7 +14,19 @@ public class Task11Main {
     }
 
     static void swap(int[] arr) {
-        //todo напишите здесь свою корректную реализацию этого метода, вместо существующей
+        if (arr == null || arr.length == 0 || arr.length == 1) return;
+        int minimalElem = 2147483647;
+        int indexOfMinimalElem = 0;
+        int counter = 0;
+        for (int elem : arr){
+            if (elem < minimalElem){
+                minimalElem = elem;
+                indexOfMinimalElem = counter;
+            }
+            counter++;
+        }
+        arr[indexOfMinimalElem] = arr[0];
+        arr[0] = minimalElem;
     }
 
 }
