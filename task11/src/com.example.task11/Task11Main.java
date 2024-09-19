@@ -14,7 +14,7 @@ public class Task11Main {
     }
 
     static void swap(int[] arr) {
-        if (arr == null || arr.length == 0 || arr.length == 1) return;
+        if (arr == null || arr.length == 0) return;
         int minimalElem = 2147483647;
         int indexOfMinimalElem = 0;
         int counter = 0;
