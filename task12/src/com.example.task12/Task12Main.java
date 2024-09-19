@@ -12,7 +12,21 @@ public class Task12Main {
     }
 
     static void selectionSort(int[] arr) {
-        //todo напишите здесь свою корректную реализацию этого метода, вместо существующей
+        if (arr == null) return;
+        int n = arr.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            int indexOfMinimalElem = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[indexOfMinimalElem]) {
+                    indexOfMinimalElem = j;
+                }
+            }
+
+            int temp = arr[indexOfMinimalElem];
+            arr[indexOfMinimalElem] = arr[i];
+            arr[i] = temp;
+        }
     }
 
 }
